@@ -1,3 +1,8 @@
+import NavBar from "../component/NavBar";
+
 export default function Tomato(){
-    return 'about us';
+    return <div>
+        <NavBar/>
+        <h1>About</h1>
+    </div>
 }
