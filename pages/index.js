@@ -5,23 +5,24 @@ import Seo from '../component/Seo';
 export default function Home({movies}){
     const router = useRouter();
     const onClick = (id, title)=>{
-        router.push({
-            pathname: `/movies/${id}`,
-            query: {
-                title
-            }
-        }, `/movies/${id}`);
+        // router.push({
+        //     pathname: `/movies/${id}`,
+        //     query: {
+        //         title
+        //     }
+        // }, `/movies/${id}`);
+        router.push(`/movies/${title}/${id}`);
     }
 
     return (
         <div className="container">
             <Seo title='Home'/>
             {movies?.map((movie) => (
-                <div className="movie" key={movie.id}>
-                {/* <div onClick={()=>onClick(movie.id, movie.original_title)} className="movie" key={movie.id}> */}
+                // <div className="movie" key={movie.id}>
+                <div onClick={()=>onClick(movie.id, movie.original_title)} className="movie" key={movie.id}>
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                     <h4>
-                        <Link href={{
+                        {/* <Link href={{
                             pathname: `/movies/${movie.id}`,
                             query: {
                                 title: movie.original_title
@@ -29,10 +30,10 @@ export default function Home({movies}){
                             }}
                             as={`/movies/${movie.id}`}
                         >
-                            <a>
+                            <a> */}
                             {movie.original_title}
-                            </a>
-                        </Link>
+                            {/* </a>
+                        </Link> */}
                     </h4>
                 </div>
             ))}
