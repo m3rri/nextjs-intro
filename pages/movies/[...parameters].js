@@ -16,7 +16,7 @@ export default function Detail({params}){
 export function getServerSideProps({params}){
     return {
         props: {
-            params: params.params
+            params: params.parameters
         }
     }
 }
